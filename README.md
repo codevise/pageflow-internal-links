@@ -11,11 +11,12 @@ Add this line to your application's Gemfile:
     # Gemfile
     gem 'pageflow-internal-links'
 
-Register the page types:
+Register the page types and plugin:
 
     # config/initializers/pageflow.rb
     Pageflow.configure do |config|
       config.page_types.register(Pageflow::InternalLinks.grid_page_type)
+      config.plugin(Pageflow::InternalLinks.plugin)
     end
 
 Include javascripts and stylesheets:
@@ -51,7 +52,9 @@ Migrate the database:
 
     bundle exec rake db:migrate
 
-Restart the application server.
+Restart the application server. The internal link list page type is only 
+available if the corresponding feature flag has been enabled in the 
+account's or entry's admin tab. 
 
 ## Troubleshooting
 

@@ -2,7 +2,7 @@
   $internal-links-list-main-color: $main-color-dark !default;
   $internal-links-list-item-background-color: rgba(48, 48, 48, 0.8) !default;
 
-  .contentText {
+  .page_text {
     margin-bottom: 250px;
 
     @include mobile {

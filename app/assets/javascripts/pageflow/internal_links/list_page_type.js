@@ -1,4 +1,4 @@
-pageflow.react.registerPageTypeWithDefaultBackground('internal_links_list', {
+pageflow.react.registerPageTypeWithDefaultBackground('internal_links_list', _.extend({
   prepareNextPageTimeout: 0,
 
   enhance: function(pageElement, configuration) {
@@ -19,10 +19,7 @@ pageflow.react.registerPageTypeWithDefaultBackground('internal_links_list', {
   },
 
   update: function(pageElement, configuration) {
-    pageElement.find('h2 .tagline').text(configuration.get('tagline') || '');
-    pageElement.find('h2 .title').text(configuration.get('title') || '');
-    pageElement.find('h2 .subtitle').text(configuration.get('subtitle') || '');
-    pageElement.find('.contentText p').html(configuration.get('text') || '');
+    this.updateDefaultPageContent(pageElement, configuration);
 
     pageElement.find('.shadow').css({
       opacity: configuration.get('gradient_opacity') / 100
@@ -44,4 +41,4 @@ pageflow.react.registerPageTypeWithDefaultBackground('internal_links_list', {
       }
     });
   }
-});
+}, pageflow.defaultPageContent));

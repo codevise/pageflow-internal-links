@@ -14,6 +14,10 @@ module Pageflow
       def view_helpers
         [InternalLinks::ListHelper]
       end
+
+      def export_version
+        VERSION
+      end
     end
   end
 end

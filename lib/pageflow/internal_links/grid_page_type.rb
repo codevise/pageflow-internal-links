@@ -14,6 +14,10 @@ module Pageflow
       def view_helpers
         [GridHelper]
       end
+
+      def export_version
+        VERSION
+      end
     end
   end
 end

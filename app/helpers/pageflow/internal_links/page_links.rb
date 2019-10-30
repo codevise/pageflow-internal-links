@@ -1,8 +1,8 @@
 module Pageflow
   module InternalLinks
-    class PageLinks < Struct.new(:entry, :configuration)
-      def self.deserialize(entry, configuration)
-        new(entry, configuration).deserialize
+    class PageLinks < Struct.new(:template, :entry, :configuration)
+      def self.deserialize(template, entry, configuration)
+        new(template, entry, configuration).deserialize
       end
 
       def deserialize
@@ -29,7 +29,8 @@ module Pageflow
 
       def parse_collection(collection)
         collection.map do |attributes|
-          PageLink.new(attributes['target_page_id'],
+          PageLink.new(template,
+                       attributes['target_page_id'],
                        attributes['position'].to_i,
                        attributes['page_transition'],
                        attributes['description'],
@@ -39,12 +40,13 @@ module Pageflow
 
       def parse_legacy_hash(hash)
         hash.map do |position, target_page_id|
-          PageLink.new(target_page_id, (position.to_i - 1), nil, nil, nil)
+          PageLink.new(template, target_page_id, (position.to_i - 1), nil, nil, nil)
         end
       end
     end
 
-    class PageLink < Struct.new(:target_page_id,
+    class PageLink < Struct.new(:template,
+                                :target_page_id,
                                 :position,
                                 :page_transition,
                                 :optional_description,
@@ -62,7 +64,7 @@ module Pageflow
 
       def thumbnail_file
         custom_thumbnail_file ||
-          (target_page && target_page.thumbnail_file)
+          (target_page && template.page_thumbnail_file(target_page))
       end
 
       def css_class
@@ -87,7 +89,8 @@ module Pageflow
       private
 
       def custom_thumbnail_file
-        @custom_thumbnail_file = ImageFile.find_by_id(custom_thumbnail_image_id)
+        @custom_thumbnail_file = template.find_file_in_entry(ImageFile,
+                                                             custom_thumbnail_image_id)
       end
 
       def target_page_description

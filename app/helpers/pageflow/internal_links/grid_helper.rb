@@ -3,7 +3,7 @@ module Pageflow
     module GridHelper
       def internal_links_grid(entry, configuration)
         Grid.new(self,
-                 InternalLinks::PageLinks.deserialize(entry, configuration),
+                 InternalLinks::PageLinks.deserialize(self, entry, configuration),
                  configuration['linked_pages_layout']).render
       end
 

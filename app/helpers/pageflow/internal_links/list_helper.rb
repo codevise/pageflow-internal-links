@@ -3,7 +3,7 @@ module Pageflow
     module ListHelper
       def internal_links_list(entry, configuration)
         render('pageflow/internal_links/list/list',
-               page_links: InternalLinks::PageLinks.deserialize(entry, configuration))
+               page_links: InternalLinks::PageLinks.deserialize(self, entry, configuration))
       end
     end
   end

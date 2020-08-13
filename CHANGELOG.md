@@ -1,10 +1,13 @@
 # CHANGELOG
 
-### Unreleased Changes
+### Version 1.4.0
 
-[Compare changes](https://github.com/codevise/pageflow-internal-links/compare/1-3-stable...master)
+2020-08-13
 
-None so far.
+[Compare changes](https://github.com/codevise/pageflow-internal-links/compare/1-3-stable...v1.4.0)
+
+- Bug fix: Remove empty space in mosaic layout
+  ([#22](https://github.com/codevise/pageflow-internal-links/pull/22))
 
 See
 [1-3-stable branch](https://github.com/codevise/pageflow-internal-links/blob/1-3-stable/CHANGELOG.md)

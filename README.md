@@ -1,7 +1,7 @@
 # Pageflow Internal Links
 
 [![Gem Version](https://badge.fury.io/rb/pageflow-internal-links.svg)](http://badge.fury.io/rb/pageflow-internal-links)
-[![Build Status](https://travis-ci.org/codevise/pageflow-internal-links.svg?branch=master)](https://travis-ci.org/codevise/pageflow-internal-links)
+[![Build Status](https://github.com/codevise/pageflow-internal-links/workflows/tests/badge.svg)](https://github.com/codevise/pageflow-internal-links/actions)
 
 Page types for linking to pages inside a Pageflow.
 

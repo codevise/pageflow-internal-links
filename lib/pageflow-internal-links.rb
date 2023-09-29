@@ -1,4 +1,5 @@
 require 'pageflow/internal_links/engine'
+require 'pageflow/internal_links/version'
 
 module Pageflow
   module InternalLinks

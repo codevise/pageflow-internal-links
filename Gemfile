@@ -7,7 +7,4 @@ if ENV['PAGEFLOW_DEPENDENCIES'] == 'experimental'
     gem 'pageflow'
     gem 'pageflow-support'
   end
-else
-  # Speed up dependency resolution
-  gem 'rails', '~> 5.2.0'
 end
